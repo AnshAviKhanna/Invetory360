@@ -1,0 +1,17 @@
+Just for reference (Not to be submitted)
+select * from Product p, Category c where c.categoryName='catName2' and p.categoryId=c.categoryId;
+select * from Product p  inner join Category c  on c.categoryId=p.categoryId and c.categoryName='catName2';
+
+select * from Product where expiryDate<"06/25" AND expiryDate like "%25";
+
+SELECT SUBSTRING("SQL Tutorial", 5, 3) AS ExtractString;
+
+update Product inner join Category on Product.categoryId=Category.categoryId set discount=10 where Category.categoryName='catName2';
+
+select sellingPrice*(1-discount/100)*qty where productName=oldProduct <= (select sellingPrice*(1-discount/100)*qty where productName=newProduct)
+
+select finalPrice from Purchases where orderId='o00001' <= (select sellingPrice*(1-discount/100)*qty where productName=newProduct) 
+
+select sellingPrice*(1-discount/100)*5 from Product where productName='pname1'and batchId='b1' and sellingPrice*(1-discount/100)*5 <= (select sellingPrice*(1-discount/100)*5 from Product where productName='pname3')
+
+select finalPrice from Purchases where orderId='o00001' and finalPrice <= (select sellingPrice*(1-discount/100)*5 from Product where productName='pname3')
